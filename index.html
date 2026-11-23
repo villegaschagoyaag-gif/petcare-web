@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="PetCare - Clínica Veterinaria y Estética Canina Digital.">
+  <title>PetCare | Clínica Veterinaria y Estética Canina</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <!-- ENCABEZADO SEMÁNTICO Y NAVEGACIÓN RESPONSIVE -->
+  <header class="site-header">
+    <nav class="navbar" aria-label="Navegación principal">
+      <a href="index.html" class="brand">🐾 PetCare <span>Clínica &amp; Spa</span></a>
+      <!-- Botón hamburguesa interactivo controlado por evento click en main.js -->
+      <button type="button" class="menu-toggle" id="menu-toggle" aria-expanded="false" aria-controls="nav-links" aria-label="Abrir menú de navegación">☰</button>
+      <ul class="nav-links" id="nav-links">
+        <li><a href="index.html" class="active">Inicio</a></li>
+        <li><a href="productos.html">Productos</a></li>
+        <li><a href="servicios.html">Servicios y Citas</a></li>
+        <li><a href="contacto.html">Contacto</a></li>
+      </ul>
+      <aside class="nav-actions">
+        <button type="button" class="badge-role" id="role-toggle" title="Cambiar entre rol Cliente y Administrador">👤 Rol: Cliente</button>
+        <button type="button" class="btn btn-outline btn-sm client-only" id="open-cart-btn">🛒 Carrito (<span id="cart-count">0</span>)</button>
+        <button type="button" class="btn btn-danger btn-sm" id="logout-btn" title="Cerrar sesión">Salir</button>
+      </aside>
+    </nav>
+  </header>
+
+  <main>
+    <!-- BANNER PRINCIPAL (HERO) -->
+    <section class="hero" aria-labelledby="hero-title">
+      <article>
+        <span class="hero-tag">Clínica Veterinaria Digital • Envío y Click &amp; Collect</span>
+        <h1 id="hero-title">Salud, estética y bienestar integral para tu mascota</h1>
+        <p>Agenda citas médicas o de estética canina de lunes a viernes sin empalmes de horario y compra en línea con tarjeta eligiendo envío a domicilio o recolección Click &amp; Collect.</p>
+        <nav class="hero-cta">
+          <a href="servicios.html#agendar" class="btn btn-accent">📅 Agendar Cita Ahora</a>
+          <a href="productos.html" class="btn btn-outline">🛍️ Ver Catálogo</a>
+        </nav>
+      </article>
+      <figure class="hero-visual">
+        <svg viewBox="0 0 240 160" width="220" height="145" role="img" aria-label="Ilustración clínica PetCare">
+          <rect x="20" y="20" width="200" height="120" rx="16" fill="#ffffff" fill-opacity="0.14"/>
+          <circle cx="85" cy="75" r="28" fill="#e6f4f1"/>
+          <text x="85" y="84" font-size="30" text-anchor="middle">🐶</text>
+          <circle cx="155" cy="75" r="28" fill="#ffedd5"/>
+          <text x="155" y="84" font-size="30" text-anchor="middle">🐱</text>
+          <rect x="55" y="114" width="130" height="14" rx="7" fill="#f97316"/>
+        </svg>
+        <figcaption>Atención médica certificada y estética libre de estrés</figcaption>
+      </figure>
+    </section>
+
+    <!-- TARJETAS DE SERVICIOS PRINCIPALES -->
+    <section aria-labelledby="features-heading">
+      <h2 id="features-heading" style="margin-bottom: 1rem;">¿Por qué elegir PetCare Digital?</h2>
+      <section class="grid-cards">
+        <article class="card">
+          <h3>🔒 Expedientes Clínicos Privados</h3>
+          <p>Historial médico digitalizado (vacunas, alergias y tratamientos) resguardado exclusivamente por nuestros médicos veterinarios.</p>
+          <a href="servicios.html#expedientes" class="btn btn-outline btn-sm">Ver Módulo Clínico</a>
+        </article>
+        <article class="card">
+          <h3>⏰ Citas Sin Empalmes</h3>
+          <p>Selector inteligente de fecha (Lunes a Viernes) y bloques horarios disponibles para consulta médica, baño medicado y corte de raza.</p>
+          <a href="servicios.html#agendar" class="btn btn-outline btn-sm">Reservar Horario</a>
+        </article>
+        <article class="card">
+          <h3>🏪 Envío o Click &amp; Collect</h3>
+          <p>Paga en línea con tarjeta y elige entrega en tu domicilio o recolección programada en sucursal con PIN de seguridad.</p>
+          <a href="productos.html" class="btn btn-outline btn-sm">Explorar Productos</a>
+        </article>
+      </section>
+    </section>
+
+    <!-- CONTROL DE ROLES -->
+    <section class="toolbar" aria-label="Control de acceso por roles">
+      <article>
+        <h3>Control de Permisos por Rol (Protegido con PIN)</h3>
+        <p style="color: var(--text-muted); font-size: 0.92rem;">
+          <strong>Cliente:</strong> agenda citas y compra con envío o Click &amp; Collect.
+          <strong>Administrador (PIN: 2026):</strong> gestiona expedientes clínicos, citas e inventario.
+        </p>
+      </article>
+      <button type="button" class="btn btn-primary" onclick="toggleRole()">🔐 Cambiar Rol Ahora</button>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <section class="footer-inner">
+      <article class="footer-col">
+        <h3>🐾 PetCare Clínica &amp; Estética</h3>
+        <p>Atención veterinaria integral, estética canina y farmacia especializada.</p>
+      </article>
+      <article class="footer-col">
+        <h3>Navegación</h3>
+        <a href="index.html">Inicio</a>
+        <a href="productos.html">Catálogo de Productos</a>
+        <a href="servicios.html">Servicios y Citas</a>
+        <a href="contacto.html">Contacto y Soporte</a>
+      </article>
+      <article class="footer-col">
+        <h3>Horarios y Sucursal</h3>
+        <p>Lun - Vie: 09:00 AM - 07:00 PM</p>
+        <p>Blvd. Adolfo López Mateos #1420</p>
+        <p>Tel: (477) 555-0192</p>
+      </article>
+    </section>
+    <p class="footer-bottom">
+      <span>© 2026 PetCare Veterinaria. Todos los derechos reservados.</span>
+      <span>🔒 Conexión Segura SSL/HTTPS Activa</span>
+    </p>
+  </footer>
+
+  <!-- Vinculación de lógica cliente (Etapa 3) -->
+  <script src="main.js"></script>
+</body>
+</html>

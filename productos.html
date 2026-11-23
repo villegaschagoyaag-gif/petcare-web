@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Catálogo de productos veterinarios con envío a domicilio y Click & Collect en PetCare.">
+  <title>PetCare | Catálogo de Productos</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="site-header">
+    <nav class="navbar" aria-label="Navegación principal">
+      <a href="index.html" class="brand">🐾 PetCare <span>Clínica &amp; Spa</span></a>
+      <button type="button" class="menu-toggle" id="menu-toggle" aria-expanded="false" aria-controls="nav-links" aria-label="Abrir menú de navegación">☰</button>
+      <ul class="nav-links" id="nav-links">
+        <li><a href="index.html">Inicio</a></li>
+        <li><a href="productos.html" class="active">Productos</a></li>
+        <li><a href="servicios.html">Servicios y Citas</a></li>
+        <li><a href="contacto.html">Contacto</a></li>
+      </ul>
+      <aside class="nav-actions">
+        <button type="button" class="badge-role" id="role-toggle">👤 Rol: Cliente</button>
+        <button type="button" class="btn btn-outline btn-sm client-only" id="open-cart-btn">🛒 Carrito (<span id="cart-count">0</span>)</button>
+        <button type="button" class="btn btn-danger btn-sm" id="logout-btn">Salir</button>
+      </aside>
+    </nav>
+  </header>
+
+  <main>
+    <section class="page-header">
+      <h1>Catálogo de Productos e Inventario</h1>
+      <p>Compra en línea con <strong>pago anticipado con tarjeta</strong> y elige entre <strong>Envío a Domicilio</strong> o recolección garantizada en sucursal mediante <strong>Click &amp; Collect</strong>.</p>
+    </section>
+
+    <!-- PANEL EXCLUSIVO DE ADMINISTRADOR -->
+    <section class="admin-panel admin-only" id="admin-product-panel" aria-labelledby="admin-prod-title">
+      <h2 id="admin-prod-title">🛠️ Panel Administrador: Registrar Nuevo Producto</h2>
+      <p style="font-size: 0.9rem; color: var(--text-muted);">En modo Administrador puedes agregar, editar existencias o eliminar productos (compras deshabilitadas).</p>
+      <form id="add-product-form" class="styled-form">
+        <fieldset>
+          <legend>Datos del Producto</legend>
+          <label>Nombre del producto *
+            <input type="text" id="prod-name" required placeholder="Ej. Croquetas Cachorro 4kg">
+          </label>
+          <label>Categoría *
+            <select id="prod-category" required>
+              <option value="Alimento">Alimento</option>
+              <option value="Farmacia">Farmacia</option>
+              <option value="Accesorios">Accesorios</option>
+              <option value="Higiene">Higiene y Estética</option>
+            </select>
+          </label>
+          <label>Precio (MXN) *
+            <input type="number" id="prod-price" min="1" step="0.01" required placeholder="350.00">
+          </label>
+          <label>Existencias (Stock) *
+            <input type="number" id="prod-stock" min="0" required placeholder="15">
+          </label>
+          <label>URL de Imagen (Opcional)
+            <input type="text" id="prod-img" placeholder="https://ejemplo.com/imagen.jpg">
+          </label>
+          <label>Descripción breve *
+            <input type="text" id="prod-desc" required placeholder="Presentación, beneficios o dosis">
+          </label>
+        </fieldset>
+        <button type="submit" class="btn btn-primary">💾 Guardar Producto en Inventario</button>
+      </form>
+    </section>
+
+    <!-- BARRA DE BÚSQUEDA Y FILTRO -->
+    <section class="toolbar" aria-label="Filtrar productos">
+      <form class="search-bar" onsubmit="event.preventDefault();">
+        <input type="search" id="product-search" placeholder="🔍 Buscar alimento, antipulgas, shampoo, pechera..." aria-label="Buscar producto">
+        <select id="category-filter" style="max-width: 210px;" aria-label="Filtrar por categoría">
+          <option value="Todas">Todas las categorías</option>
+          <option value="Alimento">Alimento</option>
+          <option value="Farmacia">Farmacia</option>
+          <option value="Accesorios">Accesorios</option>
+          <option value="Higiene">Higiene y Estética</option>
+        </select>
+      </form>
+      <span id="product-counter" style="font-weight: 700; color: var(--primary-dark);">Mostrando 12 productos</span>
+    </section>
+
+    <!-- CUADRÍCULA DINÁMICA DE PRODUCTOS -->
+    <section class="catalog-grid" id="products-grid" aria-label="Listado de productos"></section>
+  </main>
+
+  <footer class="site-footer">
+    <section class="footer-inner">
+      <article class="footer-col">
+        <h3>🐾 PetCare Clínica &amp; Estética</h3>
+        <p>Catálogo sincronizado con inventario clínico.</p>
+      </article>
+      <article class="footer-col">
+        <h3>Enlaces</h3>
+        <a href="index.html">Inicio</a>
+        <a href="productos.html">Productos</a>
+        <a href="servicios.html">Servicios y Citas</a>
+        <a href="contacto.html">Contacto</a>
+      </article>
+    </section>
+    <p class="footer-bottom">
+      <span>© 2026 PetCare Veterinaria</span>
+      <span>🔒 Conexión Segura SSL/HTTPS</span>
+    </p>
+  </footer>
+
+  <script src="main.js"></script>
+</body>
+</html>
